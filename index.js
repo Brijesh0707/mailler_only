@@ -38,10 +38,10 @@ app.post("/details", (req, res) => {
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error);
-        res.status(500).send('Error sending email');
+        res.status(500).json('Error sending email');
       } else {
         console.log('Email sent: ' + info.response);
-        res.status(200).send({message:'true',email:'Email sent successfully'});
+        res.status(200).json({message:'true',email:'Email sent successfully'});
       }
     });
   } catch (error) {
